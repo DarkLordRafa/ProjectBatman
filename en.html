@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Projetc Batman - Characters</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content=
+		"width=device-width, initial-scale=1.0, user-scalable='no'">
+		<meta name="google-site-verification" content="2x8xivTquKHZuGV3KcrU3AyVFbkomnZT5UZxRN-YH-M"/>
+		<meta property="og:url" content="https://darklordrafa.github.io/BatmanProject/">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="https://darklordrafa.github.io/BatmanProject/assets/imagens/thumb.png">
+		<meta property="og:title" content="Project Batman - Characters">
+		<meta property="og:description" content="Project made with love using HTML5, CSS3 and JavaScript">
+		<link rel="shortcut icon" href="assets/imagens/bat_symbol.png" sizes="48x48" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href=
+		"assets/css/index.css">
+		<script src="assets/js/jquery.js"></script>
+	</head>
+	<body>
+	
+	<header>
+		<div id="language">
+			<div id="language__button">
+				English
+				<img src="assets/imagens/eua.png">
+			</div>
+			<div id="language__menu">
+				<ul>
+					<a href="index.html"><li>Português<img src="assets/imagens/brazil.png"></li></a>
+					<a href="en.html"><li>English<img src="assets/imagens/eua.png"></li></a>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="play-music">
+			<div id="play-music__button">
+				Play Music<img src="assets/imagens/play.png">
+			</div>
+			<div id="play-music__menu">
+				<ul>
+					<li id="music-1">Music 1</li>
+					<li id="music-2">Music 2</li>
+					<li id="music-3">Music 3</li>
+					<li id="stop">Stop<img src="assets/imagens/stop.png"></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	
+	<h1 id="me">Developed by <a href="https://www.linkedin.com/in/rafael-aparecido-363bbb212">Rafael</a></h1>
+	<img class="bats-hidden" src="assets/imagens/bats.gif">
+	<div id="characters">
+		<nav id="characters__menu">
+			<ul>
+				<li id="batman">Batman</li>
+				<li id="catwoman">Catwoman</li>
+				<li id="joker">The Joker</li>
+				<li id="harley-quinn">Harley Quinn</li>
+				<li id="penguin">The Penguin</li>
+				<li id="riddler">The Riddler</li>
+			</ul>
+		</nav>
+		<div id="characters__image">
+			<img src="assets/imagens/batman3.png">
+		</div>
+	</div>
+	
+	<main>
+		<p>
+			When his parents were gunned down in front of him, young Bruce
+			Wayne resolved to rid Gotham City of the criminal element that took
+			their lives.
+			He trained extensively to achieve mental and physical perfection, in
+			addition to mastering martial arts, detective techniques, and criminal
+			psychology.
+			Dressing as a bat to prey on criminals' fears, Batman fights crimes
+			with the aid of specialized gadgets and vehicles, operating out of his
+			secret Batcave below Wayne Manor.
+		</p>
+	</main>
+	
+	<audio id="music">
+		<source src="assets/audio/track1.mp3">
+	</audio>
+	<audio id="bats-sound">
+		<source src="assets/audio/bats2.mp3">
+	</audio>
+	
+	
+	
+	<script>
+		function open_close_menu(){
+			if (document.querySelector("#play-music__menu").style.height == '70%'){
+				document.querySelector("#play-music__menu").style.height = '0%';
+				}
+			else {
+				document.querySelector("#play-music__menu").style.height = '70%';
+				}
+			}
+		function open_close_language(){
+			if (document.querySelector("#language__menu").style.height == '70%'){
+				document.querySelector("#language__menu").style.height = '0%';
+				}
+			else {
+				document.querySelector("#language__menu").style.height = '70%';
+				}
+			}
+		$("#characters li")
+      .on("click", function(){
+      $(".bats-hidden").addClass("bats")
+		.on("animationend", function(){
+      $(this).removeClass("bats");
+    });
+		}
+    );
+		function scroll_to_top(){
+			$("main").scrollTop(0);
+			}
+		$("li").ready(function(){
+			$("li").click(function(){
+				$("li").css("background-color", "");
+				$(this).css("background-color", "black");
+			});
+				}
+			);
+	</script>
+	
+	<script>
+		document.querySelector("#play-music__button").addEventListener("click", open_close_menu);
+		document.querySelector("#language__button").addEventListener("click", open_close_language);
+	</script>
+	
+	<script>
+		document.querySelector("#music").loop = true;
+		function play_music_1(){
+			document.querySelector("#music").src = "assets/audio/MainTheme.mp3";
+			document.querySelector("#music").play();
+			}
+		function play_music_2(){
+			document.querySelector("#music").src = "assets/audio/track1.mp3";
+			document.querySelector("#music").play();
+			}
+		function play_music_3(){
+			document.querySelector("#music").src = "assets/audio/track2.mp3";
+			document.querySelector("#music").play();
+			}
+		function stop_music(){
+			document.querySelector("#music").src = "";
+			}
+		function play_select_sound(){
+		var select_sound = new Audio("assets/audio/select.mp3");
+		select_sound.play();
+			}
+		function play_bats_sound(){
+			document.querySelector("#bats-sound").play();
+			}
+	</script>
+	
+	<script>
+		function display_batman(){
+			document.querySelector("#characters__image img").src = "assets/imagens/batman3.png";
+			document.querySelector("main p").innerHTML = "When his parents were gunned down in front of him, young Bruce Wayne resolved to rid Gotham City of the criminal element that took their lives. He trained extensively to achieve mental and physical perfection, in addition to mastering martial arts, detective techniques, and criminal psychology. Dressing as a bat to prey on criminals' fears, Batman fights crimes with the aid of specialized gadgets and vehicles, operating out of his secret Batcave below Wayne Manor.";
+			}
+		function display_catwoman(){
+			document.querySelector("#characters__image img").src = "assets/imagens/catwoman.png";
+			document.querySelector("main p").innerHTML = "An orphan who learned to survive on the mean streets of Gotham, Selina Kyle turned to thievery to survive. Determined to do it with style,she learned martial arts and trained in gymnastics to perfect her skills. Her criminal activities are tempered by a reluctant altruism, making her an inconstant villain and occasional hero. She maintains a complicated, adversarial relationship with Batman that frequently turns flirtatious and occasionally romantic. Since the opening of Arkham City, reports of Catwoman burglaries are down, though underworld rumors have her hunting down Two-Face for an unknown reason.";
+			}
+		function display_joker(){
+			document.querySelector("#characters__image img").src = "assets/imagens/joker.png";
+			document.querySelector("main p").innerHTML = "The self-styled Clown Prince of Crime has no superpowers beyond a capacity for incredible violence and a skill at creating deadly mayhem. Since his last encounter with the Dark Knight, the Joker has been transferred to Arkham City. Eyewitnesses claim he is stricken with a serious disease, possibly caused by his Titan overdose on Arkham Island. He has been lying low, delivering orders through Harley Quinn, so no one can confirm if the Joker is actually in poor health or playing another sick joke.";
+			}
+		function display_harley_quinn(){
+			document.querySelector("#characters__image img").src = "assets/imagens/harley_quinn.png";
+			document.querySelector("main p").innerHTML = "An Arkham Asylum psychiatrist assigned to treat the Joker, Dr. Harleen Quinzel instead became obsessively fixated on her patient, believing herself to be in love with him. She helped him escape and took on her own criminal identity as Harley Quinn. Quinn is a violent and unpredictable felon whose only motivation is achieving the Joker's approval Because of his cruel and mercurial nature, this in some ways makes her just another of his victims-albeit a very dangerous one, Since the Joker's Titan overdose in Arkham Asylum, Harley's mind has further deteriorated. She is blindly determined to put a smile back on his face.";
+			}
+		function display_penguin(){
+			document.querySelector("#characters__image img").src = "assets/imagens/penguin.png";
+			document.querySelector("main p").innerHTML = "The Penguin is an eccentric criminal mastermind known for his shady business dealings. Born into the wealthy Cobblepot family, Oswald was sent overseas for school as a boy. When his family hit hard times, Cobblepot immersed himself in a criminal education on the streets of London. Years later, he re-emerged as the Penguin, a black-market arms dealer in Gotham, facilitating the illegal financial activities that fund much of the city's underworld. The Penguin seems to be prospering within Arkham City as the leader of its emerging black market.";
+			}
+		function display_riddler(){
+			document.querySelector("#characters__image img").src = "assets/imagens/riddler.png";
+			document.querySelector("main p").innerHTML = "With an obsessive-compulsive need for attention, Edward Nigma is determined to be the cleverest of Gotham City's criminals, plotting elaborate trails of clues and riddles around his crimes. Batman has proven a worthy opponent, capable of unraveling the Riddler's most intricate plans, but Nigma is dedicated to creating a mystery that will stump the Dark Knight, even if he has to kill someone to do it Humiliated by Batman on Arkham Island, Nigma is more determined than ever to bring the Caped Crusader to his knees.";
+			}
+	</script>
+	
+	<script>
+		$("#characters li").on("click", scroll_to_top);
+		$("li, #play-music__button, #language__button").on("click", play_select_sound);
+		$("#characters li").on("click", play_bats_sound);
+		document.querySelector("#music-1").addEventListener("click", play_music_1);
+		document.querySelector("#music-2").addEventListener("click", play_music_2);
+		document.querySelector("#music-3").addEventListener("click", play_music_3);
+		document.querySelector("#stop").addEventListener("click", stop_music);
+		document.querySelector("#batman").addEventListener("click", display_batman);
+		document.querySelector("#catwoman").addEventListener("click", display_catwoman);
+		document.querySelector("#joker").addEventListener("click", display_joker);
+		document.querySelector("#harley-quinn").addEventListener("click", display_harley_quinn);
+		document.querySelector("#penguin").addEventListener("click", display_penguin);
+		document.querySelector("#riddler").addEventListener("click", display_riddler);
+	</script>
+	
+	
+	
+	
+	
+	</body>
+</html>
