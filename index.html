@@ -23,6 +23,10 @@
 		<script src="assets/js/jquery.js"></script>
 	</head>
 	<body>
+		
+	<div id="load-screen">
+		<img src="assets/imagens/bat_symbol3.png" alt="Carregando" />
+	</div>
 	
 	<header>
 		<div id="language">
@@ -86,6 +90,23 @@
 	
 	
 	
+	
+	<script>
+		const loadScreen = document.querySelector("#load-screen");
+		const batSymbol = document.querySelector("#load-screen img");
+		
+		function hideScreen(){
+			loadScreen.style.cssText = "backdrop-filter: none; background-color: transparent;";
+			loadScreen.addEventListener("transitionend", function(){
+				loadScreen.style.display = "none";
+			});
+		}
+		
+		window.addEventListener("load", hideScreen);
+		window.addEventListener("load", function(){
+			batSymbol.style.display = "none";
+		});
+	</script>
 	<script>
 		function open_close_menu(){
 			if (document.querySelector("#play-music__menu").style.height == '70%'){
